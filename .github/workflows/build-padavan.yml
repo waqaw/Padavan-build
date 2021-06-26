@@ -116,6 +116,7 @@ jobs:
         # 格式如下：
         # sed -i '/自定义项/d' .config
         # echo "自定义项=y" >> .config
+        wget https://raw.githubusercontent.com/shiqingk/rt-n56u/master/trunk/.config -P /opt/rt-n56u/trunk/
         #########################################################################################
         sudo ./clear_tree
         sudo fakeroot ./build_firmware_modify $TNAME
