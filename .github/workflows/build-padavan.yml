@@ -121,10 +121,16 @@ jobs:
         sudo ./clear_tree
         sudo fakeroot ./build_firmware_modify $TNAME
         #sudo ./build_firmware_modify $TNAME 0
-        sudo mv -f images/*.trx /opt/images/
-    - name : Upload packages
-      uses: actions/upload-artifact@master
-      if: always()
+        ##文件名带上时间戳
+        file_name=$(ls images/*.trx | head -n 1)
+        file_name=${file_name%.*}
+        current=$(date '+%Y%m%d-%H%M%S')
+        sudo mv -f $file_name.trx /opt/$file_name-$current.trx
+    - name: Upload binaries to release
+      uses: svenstaro/upload-release-action@v2
       with:
-        name: Padavan-packages
-        path: /opt/images
+        repo_token: ${{ secrets.GITHUB_TOKEN }}
+        file: /opt/images/*.trx
+        tag: AtuoBuild
+        overwrite: true
+        file_glob: true
