@@ -119,8 +119,8 @@ jobs:
         echo "CONFIG_FIRMWARE_INCLUDE_CURL=y" >> configs/templates/$TNAME.config         #CURL
         echo "CONFIG_FIRMWARE_INCLUDE_OPENSSH=y" >> configs/templates/$TNAME.config      #OPENSSH
         #修改storage大小
-        sed -i '/CONFIG_MTD_STORE_PART_SIZ/s/0x0400000/0xc00000/g' configs/boards/$TNAME/kernel-3.4.x-5.0.config
-        sed -i '/size_etc/s/6M/12M/g' user/scripts/dev_init.sh
+        sed -i '/CONFIG_MTD_STORE_PART_SIZ/s/0x0400000/0x1400000/g' configs/boards/$TNAME/kernel-3.4.x-5.0.config
+        sed -i '/size_etc/s/6M/20M/g' user/scripts/dev_init.sh
         cp -f configs/templates/$TNAME.config .config
         cat .config
         echo "自定义 end"
