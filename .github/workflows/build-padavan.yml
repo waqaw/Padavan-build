@@ -116,11 +116,17 @@ jobs:
         # 格式如下：
         # sed -i '/自定义项/d' .config
         # echo "自定义项=y" >> .config
+        
         echo "CONFIG_FIRMWARE_INCLUDE_CURL=y" >> configs/templates/$TNAME.config         #CURL
         echo "CONFIG_FIRMWARE_INCLUDE_OPENSSH=y" >> configs/templates/$TNAME.config      #OPENSSH
         #修改storage大小
         sed -i '/CONFIG_MTD_STORE_PART_SIZ/s/0x0400000/0x1400000/g' configs/boards/$TNAME/kernel-3.4.x-5.0.config
         sed -i '/size_etc/s/6M/20M/g' user/scripts/dev_init.sh
+        # 512m内存
+        sed -i '/CONFIG_RT2880_DRAM_128M=y/s/128M/512M/g' /opt/rt-n56u/trunk/configs/boards/$TNAME/kernel-3.4.x-5.0.config
+        sed -i '/CONFIG_RALINK_RAM_SIZE=128/s/128/512/g'  /opt/rt-n56u/trunk/configs/boards/$TNAME/kernel-3.4.x-5.0.config
+        sed -i '/default RT2880_DRAM_64M/s/64M/512M/g'    /opt/rt-n56u/trunk/linux-3.4.x/arch/mips/rt2880/Kconfig
+
         cp -f configs/templates/$TNAME.config .config
         cat .config
         echo "自定义 end"
