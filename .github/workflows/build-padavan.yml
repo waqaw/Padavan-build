@@ -123,9 +123,9 @@ jobs:
         sed -i '/CONFIG_MTD_STORE_PART_SIZ/s/0x0400000/0x1400000/g' configs/boards/$TNAME/kernel-3.4.x-5.0.config
         sed -i '/size_etc/s/6M/20M/g' user/scripts/dev_init.sh
         # 512m内存
-        sed -i '/CONFIG_RT2880_DRAM_128M=y/s/128M/512M/g' /opt/rt-n56u/trunk/configs/boards/$TNAME/kernel-3.4.x-5.0.config
-        sed -i '/CONFIG_RALINK_RAM_SIZE=128/s/128/512/g'  /opt/rt-n56u/trunk/configs/boards/$TNAME/kernel-3.4.x-5.0.config
-        sed -i '/default RT2880_DRAM_64M/s/64M/512M/g'    /opt/rt-n56u/trunk/linux-3.4.x/arch/mips/rt2880/Kconfig
+        #sed -i '/CONFIG_RT2880_DRAM_128M=y/s/128M/512M/g' /opt/rt-n56u/trunk/configs/boards/$TNAME/kernel-3.4.x-5.0.config
+        #sed -i '/CONFIG_RALINK_RAM_SIZE=128/s/128/512/g'  /opt/rt-n56u/trunk/configs/boards/$TNAME/kernel-3.4.x-5.0.config
+        #sed -i '/default RT2880_DRAM_64M/s/64M/512M/g'    /opt/rt-n56u/trunk/linux-3.4.x/arch/mips/rt2880/Kconfig
 
         cp -f configs/templates/$TNAME.config .config
         cat .config
