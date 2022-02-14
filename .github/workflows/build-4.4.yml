@@ -88,7 +88,7 @@ jobs:
         echo "CONFIG_FIRMWARE_INCLUDE_ZEROTIER=n" >> .config #zerotier ~1.3M
         echo "CONFIG_FIRMWARE_INCLUDE_ALIDDNS=y" >> .config #aliddns
         #修改storage大小
-        sed -i '/CONFIG_MTD_STORE_PART_SIZ/s/0x0400000/0x1400000/g' configs/boards/$TNAME/kernel-4.4.x.config
+        sed -i '/CONFIG_MTD_STORE_PART_SIZ/s/0x0400000/0x1400000/g' /opt/rt-n56u/trunk/configs/boards/$TNAME/kernel-4.4.x.config
         sed -i '/size_etc/s/6M/20M/g' user/scripts/dev_init.sh
         # 512m内存
         sed -i '/CONFIG_RT2880_DRAM_128M=y/s/128M/512M/g' /opt/rt-n56u/trunk/configs/boards/$TNAME/kernel-4.4.x.config
@@ -118,7 +118,7 @@ jobs:
         echo "CONFIG_FIRMWARE_INCLUDE_WYYBIN=n" >> .config #网易云解锁GO版本执行文件（4M多）注意固件超大小,不集成会自动下载
         echo "CONFIG_FIRMWARE_INCLUDE_ZEROTIER=n" >> .config #zerotier ~1.3M
         #修改storage大小
-        sed -i '/CONFIG_MTD_STORE_PART_SIZ/s/0x0400000/0x1400000/g' configs/boards/$TNAME/kernel-3.4.x-5.0.config
+        sed -i '/CONFIG_MTD_STORE_PART_SIZ/s/0x0400000/0x1400000/g' /opt/rt-n56u/trunk/configs/boards/$TNAME/kernel-3.4.x-5.0.config
         sed -i '/size_etc/s/6M/20M/g' user/scripts/dev_init.sh
         # 512m内存
         sed -i '/CONFIG_RT2880_DRAM_128M=y/s/128M/512M/g' /opt/rt-n56u/trunk/configs/boards/$TNAME/kernel-3.4.x-5.0.config
@@ -136,7 +136,7 @@ jobs:
         file_name=$(ls images/*.trx | head -n 1)
         file_name=${file_name%.*}
         current=$(date '+%Y%m%d-%H%M%S')
-        sudo mv -f $file_name.trx /opt/${file_name}-4.4-${current}.trx
+        sudo mv -f $file_name.trx /opt/images/${file_name}-4.4-${current}.trx
     - name : Upload packages
       uses: actions/upload-artifact@master
       if: always()
