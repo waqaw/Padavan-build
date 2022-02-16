@@ -136,7 +136,7 @@ jobs:
         file_name=$(ls images/*.trx | head -n 1)
         file_name=${file_name%.*}
         current=$(date '+%Y%m%d-%H%M%S')
-        sudo mv -f $file_name.trx /opt/images/${file_name}-4.4-${current}.trx
+        sudo mv -f $file_name.trx /opt/${file_name}-4.4-${current}.trx
     - name : Upload packages
       uses: actions/upload-artifact@master
       if: always()
