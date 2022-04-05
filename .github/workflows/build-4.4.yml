@@ -58,9 +58,9 @@ jobs:
         sed -i 's/CONFIG_FIRMWARE_INCLUDE_HTTPS=n/CONFIG_FIRMWARE_INCLUDE_HTTPS=y/g' .config
         sed -i 's/CONFIG_FIRMWARE_INCLUDE_VLMCSD=n/CONFIG_FIRMWARE_INCLUDE_VLMCSD=y/g' .config
         # 修改storage大小
-        sed -i '/size_etc/s/6M/20M/g' $root_path/padavan-4.4/trunk/user/scripts/dev_init.sh
+        sed -i '/size_etc/s/6M/20M/g' $root_path/rt-n56u/trunk/user/scripts/dev_init.sh
         # 512m内存
-        sed -i '/CONFIG_BOARD_RAM_SIZE=128/s/128/512/g'  $root_path/padavan-4.4/trunk/configs/boards/RM2100/board.mk
+        sed -i '/CONFIG_BOARD_RAM_SIZE=128/s/128/512/g'  $root_path/rt-n56u/trunk/configs/boards/RM2100/board.mk
         #########################################################################################
         sudo ./clear_tree
         sudo ./build_firmware_modify $TNAME 0
