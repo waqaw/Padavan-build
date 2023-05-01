@@ -60,15 +60,15 @@ jobs:
         # 512m内存
         sed -i '/CONFIG_BOARD_RAM_SIZE=128/s/128/512/g'  /opt/rt-n56u/trunk/configs/boards/RM2100/board.mk
         #### 测试替换谷歌dns为腾讯dns #############################################################
-        sed -i '/8\.8\.8\.8/s/8\.8\.8\.8/119.29.29.29/g' /opt/rt-n56u/trunk/user/dns-forwarder/dns-forwarder-1.2.1/hev-main.c
-        sed -i '/8\.8\.8\.8/s/8\.8\.8\.8/119.29.29.29/g' /opt/rt-n56u/trunk/user/redsocks/redsocks-19b822e/debian/redsocks.conf
-        sed -i '/8\.8\.8\.8/s/8\.8\.8\.8/119.29.29.29/g' /opt/rt-n56u/trunk/user/iptables/iptables-1.8.7/extensions/libxt_udp.txlate
-        sed -i '/8\.8\.8\.8/s/8\.8\.8\.8/119.29.29.29/g' /opt/rt-n56u/trunk/user/iptables/iptables-1.8.7/extensions/generic.txlate
-        sed -i '/8\.8\.8\.8/s/8\.8\.8\.8/119.29.29.29/g' /opt/rt-n56u/trunk/user/miniupnpd/miniupnpd-2.x/netfilter/testiptcrdr.c
+        #sed -i '/8\.8\.8\.8/s/8\.8\.8\.8/119.29.29.29/g' /opt/rt-n56u/trunk/user/dns-forwarder/dns-forwarder-1.2.1/hev-main.c
+        #sed -i '/8\.8\.8\.8/s/8\.8\.8\.8/119.29.29.29/g' /opt/rt-n56u/trunk/user/redsocks/redsocks-19b822e/debian/redsocks.conf
+        #sed -i '/8\.8\.8\.8/s/8\.8\.8\.8/119.29.29.29/g' /opt/rt-n56u/trunk/user/iptables/iptables-1.8.7/extensions/libxt_udp.txlate
+        #sed -i '/8\.8\.8\.8/s/8\.8\.8\.8/119.29.29.29/g' /opt/rt-n56u/trunk/user/iptables/iptables-1.8.7/extensions/generic.txlate
+        #sed -i '/8\.8\.8\.8/s/8\.8\.8\.8/119.29.29.29/g' /opt/rt-n56u/trunk/user/miniupnpd/miniupnpd-2.x/netfilter/testiptcrdr.c
         sed -i '/8\.8\.8\.8/s/8\.8\.8\.8/119.29.29.29/g' /opt/rt-n56u/trunk/user/rc/net_wan.c
-        sed -i '/8\.8\.8\.8/s/8\.8\.8\.8/119.29.29.29/g' /opt/rt-n56u/trunk/user/shared/defaults.c
-        sed -i '/8\.8\.8\.8/s/8\.8\.8\.8/119.29.29.29/g' /opt/rt-n56u/trunk/user/dnsmasq/dnsmasq-2.8x/src/option.c
-        sed -i '/8\.8\.8\.8/s/8\.8\.8\.8/119.29.29.29/g' /opt/rt-n56u/trunk/user/mtr/mtr-0.92/man/mtr-packet.8.in
+        #sed -i '/8\.8\.8\.8/s/8\.8\.8\.8/119.29.29.29/g' /opt/rt-n56u/trunk/user/shared/defaults.c
+        #sed -i '/8\.8\.8\.8/s/8\.8\.8\.8/119.29.29.29/g' /opt/rt-n56u/trunk/user/dnsmasq/dnsmasq-2.8x/src/option.c
+        #sed -i '/8\.8\.8\.8/s/8\.8\.8\.8/119.29.29.29/g' /opt/rt-n56u/trunk/user/mtr/mtr-0.92/man/mtr-packet.8.in
         #########################################################################################
         sudo ./clear_tree
         sudo ./build_firmware_modify $TNAME 0
